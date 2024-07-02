@@ -775,10 +775,11 @@ $(document).ready(function () {
                     </div> 
                     
                 </div>
-                <div class="property-details-calculator">
+                <div class="property-details-options">
+                    <div class="property-details-calculator">
 
                         <label for="guests">Number of Guests:</label>
-                        <input type="number" id="guests" placeholder="Enter number of guests">
+                        <input type="number" id="guests" placeholder="Enter guests">
 
                         <label>Meals:</label>
                         <div class="foodopt">
@@ -790,9 +791,14 @@ $(document).ready(function () {
                         <div class="foodopt">
                             <input type="checkbox" id="dinner" value="30"> <p>Dinner ($30)</p>
                         </div>
-                         <button class="calsuBtn" id="calculateButton">Calculate</button>
-                        <h4>Total Price: $<span id="totalPrice">0</span></h4>
+
+                    </div>
                 </div> 
+
+                <div class="calsuBtn" >
+                    <button id="calculateButton">Calculate</button>
+                </div>
+                <h4>Total Price: $<span id="totalPrice">0</span></h4>
                     <div class="mapbox">
                         <div id="map"></div>
                     </div>

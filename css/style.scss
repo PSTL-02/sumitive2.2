@@ -253,13 +253,8 @@ button {
     flex-direction: row;
     padding-left: 30px;
     padding-right: 30px;
-
-    h4 {
-        display: flex;
-        font-size: 1.5rem;
-        align-items: center;
-        justify-content: center;
-    }
+    align-items: center;
+    justify-content: baseline;
 
     p {
         font-size: 1.2rem;
@@ -275,6 +270,20 @@ button {
         margin-left: 10px;
         font-size: 1.2rem;
     }
+}
+
+.property-details-options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h4 {
+    display: flex;
+    font-size: 1.3rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 #guests {
@@ -302,6 +311,11 @@ button {
     height: 50px;
 }
 
+.calsuBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 // MAPBOX
 #map {
     width: 600px;
@@ -314,6 +328,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 

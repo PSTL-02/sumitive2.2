@@ -653,7 +653,7 @@ $(document).ready(function () {
         const bedrooms = parseInt($('#bedrooms').val(), 10) || 0;
         const bathrooms = parseInt($('#bathrooms').val(), 10) || 0;
         const diffDays = calculateDays();
-        console.log(diffDays);
+        
 
         // run filter over the properties array and check if it passes
         const filteredProperties = properties.filter(property => {
@@ -664,7 +664,7 @@ $(document).ready(function () {
                 (property.maxStay >= diffDays);
         });
 
-        console.log(filteredProperties);
+        
 
         displayProperties(filteredProperties);
     }
@@ -745,9 +745,7 @@ $(document).ready(function () {
         fullpage_api.reBuild();
 
         $(".read-more").click(function () {
-            console.log('working');
             const propertyId = $(this).data('id');
-            console.log(propertyId);
             populateSelectedOutput(propertyId);
             fullpage_api.moveTo(1, 3);
         });

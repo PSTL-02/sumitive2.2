@@ -525,17 +525,17 @@ $(document).ready(function () {
 
 
 
-    // Fullpage Init:
+   
     new fullpage('#fullpage', {
         licenseKey: 'gplv3-license',
         controlArrows: false,
         fixedElements: "#navbar",
     });
 
-    // MapBox Init:
+  
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
 
-    // Map box
+   
     function initaliseMap(longitude, latitude) {
         const map = new mapboxgl.Map({
             container: 'map',
@@ -544,27 +544,27 @@ $(document).ready(function () {
             zoom: 13
         });
 
-        // Add a marker at the specified coordinates
+        
         new mapboxgl.Marker()
             .setLngLat([longitude, latitude])
             .addTo(map);
     }
 
-    // Prevent scroll of sections and slides:
+    
     fullpage_api.setAllowScrolling(false);
 
-    // Swiper Init:
+   
     let swiper = new Swiper('.swiper', {
-        // Optional parameters
+        
         direction: 'horizontal',
-        // If we need pagination
+        
         pagination: {
             el: '.swiper-pagination',
             dynamicBullets: true,
             clickable: true,
         },
 
-        // Navigation arrows
+       
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -580,18 +580,17 @@ $(document).ready(function () {
     // Populate Locations Options/Filtering:
     function populateLocationOptions() {
         const locations = Array.from(new Set(properties.map(property => property.location)));
-        locations.sort(); // Sorts locations alphabetically
-        const locationSelect = $('#location'); // get the select
-        locationSelect.empty(); // Clear previous options
-        // Add "Any" option:
+        locations.sort(); 
+        const locationSelect = $('#location'); 
+        locationSelect.empty(); 
+        
         locationSelect.append(`<option value="any">Any</option>`);
-        // Create an option for each location:
+        
         locations.forEach(location => {
             locationSelect.append(`<option value="${location}">${location}</option>`);
         });
     }
 
-    // Call the function:
     populateLocationOptions();
 
     // Validate Filters/Form
@@ -648,14 +647,12 @@ $(document).ready(function () {
 
     // Filters & Display:
     function filterAndDisplayProperties() {
-        // Get value from filters:
+        
         const location = $('#location').val();
         const bedrooms = parseInt($('#bedrooms').val(), 10) || 0;
         const bathrooms = parseInt($('#bathrooms').val(), 10) || 0;
         const diffDays = calculateDays();
         
-
-        // run filter over the properties array and check if it passes
         const filteredProperties = properties.filter(property => {
             return (location === 'any' || property.location === location) &&
                 (property.bedrooms >= bedrooms) &&
@@ -675,9 +672,9 @@ $(document).ready(function () {
         const endDate = $("#endDate").datepicker("getDate");
 
         if (startDate && endDate) {
-            // calculate the difference:
-            const timeDiff = Math.abs(endDate.getTime() - startDate.getTime()); // postive number
-            // convert to days:
+            
+            const timeDiff = Math.abs(endDate.getTime() - startDate.getTime()); 
+            
             const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
             return diffDays;
         } else {
@@ -703,11 +700,11 @@ $(document).ready(function () {
         let propertiesPerPage = getPropertiesPerPage();
 
         const swiperWrapper = $('.swiper-wrapper');
-        // empty the swiper
+       
         swiperWrapper.empty();
 
         for (let i = 0; i < properties.length; i += propertiesPerPage) {
-            const slide = $('<div class="swiper-slide"></div>'); // each slide
+            const slide = $('<div class="swiper-slide"></div>'); 
 
             for (let j = i; j < i + propertiesPerPage && j < properties.length; j++) {
                 const property = properties[j];
@@ -731,9 +728,9 @@ $(document).ready(function () {
             }
             swiperWrapper.append(slide);
         }
-        // Destroy the swiper instance
+        
         swiper.destroy(true, true);
-        // initalise a new one
+        
         swiper = new Swiper('.swiper', {
             direction: 'horizontal',
             pagination: {
@@ -741,7 +738,7 @@ $(document).ready(function () {
             }
         });
 
-        // Rebuild Fullpage to see the new slides
+        
         fullpage_api.reBuild();
 
         $(".read-more").click(function () {
@@ -809,7 +806,7 @@ $(document).ready(function () {
         outputSlide.append(slideOutputHtml);
         initaliseMap(longitude, latitude);
 
-        // Attach click event for calculate button inside the generated HTML
+        
         $('#calculateButton').click(function () {
             var guests = parseInt($('#guests').val());
             var diffDays = calculateDays();
@@ -835,7 +832,6 @@ $(document).ready(function () {
         });
     }
 
-    // Ensure date pickers are re-initialized
     $("#startDate, #endDate").datepicker();
 
 });

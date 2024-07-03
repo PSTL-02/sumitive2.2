@@ -754,7 +754,10 @@ $(document).ready(function () {
 
         const slideOutputHtml = `
     <div class="property-solo">
-                <h3>${properties[selectedId - 1].name}</h3>
+                <div class="property-details-title">                
+                    <div class="arrow"><p><i class="fa-solid fa-left-long"></i></p></div>
+                    <h3>${properties[selectedId - 1].name}</h3>
+                </div>
                 <div class="property-details-solo">
                     <div class="property-details-img">
                         <img src="${properties[selectedId - 1].image}" alt="${properties[selectedId - 1].name}">
@@ -830,8 +833,13 @@ $(document).ready(function () {
                 alert("Please enter valid numbers in all fields.");
             }
         });
+        $('.fa-solid.fa-left-long').click(function() {
+            fullpage_api.moveTo(1, 2); 
+        });
     }
 
     $("#startDate, #endDate").datepicker();
+
+    
 
 });

@@ -247,6 +247,28 @@ button {
     color: black;
 }
 
+
+
+.property-details-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+.arrow {
+    flex: 0 0 auto;
+    
+}
+
+.property-details-title h3 {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+
+
 //Calculator 
 .property-details-calculator {
     display: flex;
